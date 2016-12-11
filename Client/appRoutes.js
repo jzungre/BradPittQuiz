@@ -1,6 +1,7 @@
 angular.module('superActorQuiz', [
 	'superActorQuiz.question', 
 	'superActorQuiz.result',
+	'superActorQuiz.fail',
 	'ngRoute'
 	])
 	.config(function($routeProvider, $httpProvider){
@@ -12,6 +13,10 @@ angular.module('superActorQuiz', [
 			.when('/result', {
 				templateUrl: 'src/result.html',
 				controller: 'resultController'
+			})
+			.when('/fail', {
+				templateUrl: 'src/fail.html',
+				controller: 'failController'
 			})
 			.otherwise({
 				redirectTo: '/question'
