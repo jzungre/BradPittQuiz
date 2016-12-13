@@ -16,7 +16,7 @@ server.use(bodyParser.urlencoded({extended:false}));
 server.use(bodyParser.json())
 
 //direct to home page
-server.use(express.static(__dirname + '/../client'));
+server.use(express.static(__dirname + '/../Client'));
 
 // start listening to requests on port 8000
 server.listen(process.env.PORT || 8000);
