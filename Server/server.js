@@ -1,6 +1,11 @@
 //require the modules I need
 var express = require('express');
+var router = require('./router.js');
 var bodyParser = require('body-parser');
+// var router = require('express').Router();
+var newBody;
+
+var http = require("https");
 
 //init app
 var server = express();
@@ -18,4 +23,98 @@ server.listen(process.env.PORT || 8000);
 
 console.log("listening to 8000")
 
-module.exports = server; 
+// server.use(router);
+
+
+
+server.post('/stars', function (exRequest, exResponse) {
+ 	//working
+ 	console.log('in STARS-server(server)!!!');
+ 	console.log('exRequest.body', exRequest.body);
+ 	var actor = exRequest.body.actor;
+ 	var uriActor = encodeURI(actor);
+ 	console.log('actor', actor, 'uriActor', uriActor);
+
+ 	var myPerson = uriActor;
+	var myPath = "/3/search/person?include_adult=false&page=1&query=" + myPerson + "&language=en-US&api_key=a437b0cda7b8a885359cb9c565766bcb";
+
+	var options = {
+	  "method": "GET",
+	  "hostname": "api.themoviedb.org",
+	  "port": null,
+	  "path": myPath,
+	  "headers": {}
+	};
+
+	
+	
+	var req = http.request(options, function (res) {
+	  var chunks = [];
+	  
+	  
+	  res.on("data", function (chunk) {
+	    chunks.push(chunk);
+	  });
+
+	  res.on("end", function () {
+	    var body = Buffer.concat(chunks);
+	     newBody = body.toString()
+	    console.log("poststring", newBody);
+	    var stringFilms = JSON.stringify(newBody)
+	    console.log("Films!!!!!!!!!!", stringFilms);
+	    exResponse.send(newBody);	   	    
+	  });
+	  
+	});
+		
+	 req.write("{}");
+	 req.end();
+	 //console.log('res', res, 'req', req);
+
+	 
+	//  console.log("BOOOOOOOOODY", newBody)
+	// // res.send();
+	// console.log("BoOooooody2", newBody);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+//// api request
+// var myPerson = "Angelina%20Jolie"
+// var myPath = "/3/search/person?include_adult=false&page=1&query=" + myPerson + "&language=en-US&api_key=a437b0cda7b8a885359cb9c565766bcb";
+
+// var options = {
+//   "method": "GET",
+//   "hostname": "api.themoviedb.org",
+//   "port": null,
+//   "path": myPath,
+//   "headers": {}
+// };
+
+// var req = http.request(options, function (res) {
+//   var chunks = [];
+
+//   res.on("data", function (chunk) {
+//     chunks.push(chunk);
+//   });
+
+//   res.on("end", function () {
+//     var body = Buffer.concat(chunks);
+//     console.log(body.toString());
+//   });
+// });
+
+// req.write("{}");
+// req.end();
+
+module.exports = server;
