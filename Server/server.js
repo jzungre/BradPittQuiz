@@ -59,9 +59,10 @@ server.post('/stars', function (exRequest, exResponse) {
 	  res.on("end", function () {
 	    var body = Buffer.concat(chunks);
 	     newBody = body.toString()
-	    console.log("poststring", newBody);
+	     console.log("RESULTS========>",newBody.results, 'newBody', newBody);
+	    //console.log("poststring", newBody);
 	    var stringFilms = JSON.stringify(newBody)
-	    console.log("Films!!!!!!!!!!", stringFilms);
+	    //console.log("Films!!!!!!!!!!", stringFilms);
 	    exResponse.send(newBody);	   	    
 	  });
 	  
@@ -69,52 +70,7 @@ server.post('/stars', function (exRequest, exResponse) {
 		
 	 req.write("{}");
 	 req.end();
-	 //console.log('res', res, 'req', req);
 
-	 
-	//  console.log("BOOOOOOOOODY", newBody)
-	// // res.send();
-	// console.log("BoOooooody2", newBody);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-//// api request
-// var myPerson = "Angelina%20Jolie"
-// var myPath = "/3/search/person?include_adult=false&page=1&query=" + myPerson + "&language=en-US&api_key=a437b0cda7b8a885359cb9c565766bcb";
-
-// var options = {
-//   "method": "GET",
-//   "hostname": "api.themoviedb.org",
-//   "port": null,
-//   "path": myPath,
-//   "headers": {}
-// };
-
-// var req = http.request(options, function (res) {
-//   var chunks = [];
-
-//   res.on("data", function (chunk) {
-//     chunks.push(chunk);
-//   });
-
-//   res.on("end", function () {
-//     var body = Buffer.concat(chunks);
-//     console.log(body.toString());
-//   });
-// });
-
-// req.write("{}");
-// req.end();
 
 module.exports = server;

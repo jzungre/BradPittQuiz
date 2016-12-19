@@ -3,7 +3,7 @@
 <div class="modal-content">
          <div class="modal-header">
          	
-            <p><span class="label label-warning" id="qid">2</span> Which movie did Brad Pitt star in the year he was named People Magazine's Sexiest Man Alive??</p>
+            <p><span class="label label-warning" id="qid">?</span> Which movie did Brad Pitt star in the year he was named People Magazine's Sexiest Man Alive??</p>
         </div>
         <div class="modal-body">
             <div class="col-xs-3 col-xs-offset-5">
@@ -20,21 +20,24 @@
           </div>
 
           <div class="quiz" id="quiz" data-toggle="buttons">
-           <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><a href="#/fail"> <input type="radio" name="q_answer" value="1">1. {{movie1}}</a></label>
+          <a href="#/fail"> <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><input type="hidden" name="q_answer" value="1">1. {{movie1}}</label></a>
 
-           <label class="element-animation2 btn btn-lg btn-primary btn-block" href="#/result"><span class="btn-label" href="#/result"><i class="glyphicon glyphicon-chevron-right" href="#/result"></i></span> <a href="#/result"><input type="radio" name="q_answer" value="2" href="#/result">2. Seven</a></label>
+           <a href="#/result"><label class="element-animation2 btn btn-lg btn-primary btn-block" href="#/result"><span class="btn-label" href="#/result"><i class="glyphicon glyphicon-chevron-right" href="#/result"></i></span> <input type="hidden" name="q_answer" value="2" href="#/result">2. Seven</label></a>
 
+           <a href="#/fail">
            <label class="element-animation3 btn btn-lg btn-primary btn-block">
+           
+
            <span class="btn-label">
            <i class="glyphicon glyphicon-chevron-right"></i>
            </span> 
-           <a href="#/fail">
-           <input type="radio" name="q_answer" value="3">
+           <input type="hidden" name="q_answer" value="3">
            3. {{movie3}}
-           </a>
            </label>
+            </a>
 
-           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span><a href="#/fail"> <input type="radio" name="q_answer" value="4">4. {{movie4}}</a></label>
+           <a href="#/fail"> 
+           <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="hidden" name="q_answer" value="4">4. {{movie4}}</label></a>
        </div>
    </div>
    <div class="modal-footer text-muted">
