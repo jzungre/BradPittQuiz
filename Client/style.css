@@ -1,3 +1,18 @@
+.quiz {
+    width: 700px;
+
+}
+
+.modal-content.ng-scope{
+  height: 65%; /* Set your own height: percents, ems, whatever! */
+  width: 60%; /* Set your own width: percents, ems, whatever! */
+  overflow: auto; /* Recommended in case content is larger than the container */
+  margin: auto; /* Center the item vertically & horizontally */
+  position: absolute; /* Break it out of the regular flow */
+  top: 0; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
+}
+
+
 #qid {
   padding: 10px 15px;
   -moz-border-radius: 50px;
@@ -13,7 +28,7 @@ a:hover {
 }
 
 #BradChallenge{
-    padding-left: 15px;
+    text-align: center;
 }
 
 #pittext {
@@ -187,6 +202,7 @@ label .glyphicon {
 
 .modal-body {
     min-height: 205px
+
 }
 #loadbar {
     position: absolute;
